@@ -3,8 +3,8 @@
 #include "monty.h"
 /**
  * pop - removes the top element of the stack.
- * @stack: Pointer to head of the stack
- * @line_number: line number
+ * @stack: Double pointer to head of the stack
+ * @line_number: Current line number in the Monty file
  */
 void pop(stack_t **stack, unsigned int line_number)
 {

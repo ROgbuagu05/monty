@@ -4,8 +4,8 @@
 #include <string.h>
 #include "monty.h"
 /**
- * push - pushes element into stack
- * @stack: pointer to the head of stack
+ * push - pushes an element to the stack
+ * @stack: Double pointer to the head of the stack
  * @line_number: line number in the Monty file
  */
 void push(stack_t **stack, unsigned int line_number)
