@@ -10,13 +10,16 @@ void rotr(stack_t **stack, unsigned int line_number)
 	stack_t *bottom, *prev;
 
 	(void) line_number;
-	if (!stack || !*stack || !(*stack)->next)
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	{
 		return;
+	}
 
 	bottom = *stack;
-
 	while (bottom->next)
+	{
 		bottom = bottom->next;
+	}
 
 	prev = bottom->prev;
 	bottom->next = *stack;
