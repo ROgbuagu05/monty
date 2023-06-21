@@ -13,12 +13,14 @@ void pchar(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
+		return;
 	}
 
 	if ((*stack)->next->n < 0 || (*stack)->next->n > 127)
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
 		exit(EXIT_FAILURE);
+		return;
 	}
 	printf("%c\n", (*stack)->n);
 }
