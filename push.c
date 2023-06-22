@@ -10,42 +10,26 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	int n;
+	char *n = global.argument;
 
-	if (glob.arg == NULL)
+	if (!isnumber(n))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
-	if (!is_number(glob.arg))
+	if (global.data_struct == 1)
 	{
-		fprintf(stderr, "L%d: invalid integer\n", line_number);
-		exit(EXIT_FAILURE);
+		if (!add_node(stack, atoi(n)))
+		{
+			exit(EXIT_FAILURE);
+		}
 	}
-
-	n = atoi(glob.arg);
-	if (add_node(stack, n) == NULL)
+	else
 	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		if (!queue_node(stack, atoi(global.argument)))
+		{
+			exit(EXIT_FAILURE);
+		}
 	}
-}
-/**
- * is_number - checks if a string is a number or not
- * @str: string to check
- * Return: 1 if string is a number, 0 otherwise
- */
-int is_number(char *str)
-{
-	if (str == NULL)
-		return (0);
-
-	while (*str != '\0')
-	{
-		if (*str < '0' || *str > '9')
-			return (0);
-		str++;
-	}
-	return (1);
 }
