@@ -54,6 +54,7 @@ int main(int argc, char **argv)
 			continue;
 		}
 		global.argument = strtok(NULL, " \t\n");
+		opcode(&stack, str, line_number);
 		line_number++;
 	}
 	free(buffer);
