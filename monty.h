@@ -11,23 +11,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-#define INSTRUCTIONS { \
-	{"push", push},\
-	{"pall", pall},\
-	{"pint", pint},\
-	{"pop", pop},\
-	{"swap", swap},\
-	{"nop", nop},\
-	{"div", _div},\
-	{"add", _add},\
-	{"sub", _sub},\
-	{"mod", mod},\
-	{"pchar", pchar},\
-	{"pstr", pstr},\
-	{"rotl", rotl},\
-	{"rotr", rotr},\
-	{NULL, NULL} \
-}
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -55,6 +38,25 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+#define INSTRUCTIONS { \
+		{"push", push},\
+		{"pall", pall},\
+		{"pint", pint},\
+		{"pop", pop},\
+		{"swap", swap},\
+		{"nop", nop},\
+		{"div", _div},\
+		{"mul", _mul},\
+		{"add", _add},\
+		{"sub", _sub},\
+		{"mod", mod},\
+		{"pchar", pchar},\
+		{"pstr", pstr},\
+		{"rotl", rotl},\
+		{"rotr", rotr},\
+		{NULL, NULL} \
+	}
 
 /**
  * struct help - argument for the current opcode
@@ -88,6 +90,7 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
+void opcode(stack_t **stack, char *str, unsigned int line_number);
 
 int is_digit(char *string);
 int isnumber(char *str);

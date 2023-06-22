@@ -2,12 +2,12 @@
 #include <stdlib.h>
 #include "monty.h"
 /**
- * mul - Multiplies the second top element of the
- * stack with the top element of the stack.
+ * _mul - Multiplies the second top node of the
+ * stack with the top node of the stack.
  * @stack: Double pointer to the head of the stack
  * @line_number: Line number of the opcode in the file
  */
-void mul(stack_t **stack, unsigned int line_number)
+void _mul(stack_t **stack, unsigned int line_number)
 {
 	int result;
 

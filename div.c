@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "monty.h"
 /**
- * _div - divides the second top element of the
- * stack by the top element of the stack.
+ * _div - divides the second top node of the
+ * stack by the top node of the stack.
  * @stack: Double pointer to the head of the stack
  * @line_number: Line number of the opcode in the file
  */
