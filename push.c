@@ -12,7 +12,7 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	char *n = global.argument;
 
-	if (!isnumber(n))
+	if (!is_digit(n) == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
@@ -27,7 +27,7 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		if (!queue_node(stack, atoi(global.argument)))
+		if (!queue_node(stack, atoi(n)))
 		{
 			exit(EXIT_FAILURE);
 		}
